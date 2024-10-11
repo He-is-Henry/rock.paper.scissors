@@ -1,10 +1,6 @@
 let userScore = 0;
 let computerScore = 0;
 let ties = 0;
-
-
-let play = confirm("Shall we play rock paper scissors?");
-
 // Define sounds
 const rockSound = new Audio('audio/rock.mp3');
 const paperSound = new Audio('audio/paper.mp3');
@@ -12,12 +8,16 @@ const scissorsSound = new Audio('audio/scissors.mp3');
 const winSound = new Audio('audio/win.mp3');
 const lossSound = new Audio('audio/loss.mp3');
 const tieSound = new Audio('audio/tie.mp3');
-const backgroundMusic = new Audio('path/to/background.mp3');
+const backgroundMusic = new Audio('audio/background.mp3');
 
-// Set background music to loop and lower volume
-//backgroundMusic.loop = true; backgroundMusic.volume = 0.2; backgroundMusic.play();
+let play = confirm("Shall we play rock paper scissors?");
 
 if (play) {
+
+// Set background music to loop and lower volume
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.2;
+
 let playerName = prompt("Please enter your name:");
     if (playerName){ document.getElementById("username-display").innerText = `Welcome, ${playerName}!`;
     } else {
@@ -25,19 +25,22 @@ let playerName = prompt("Please enter your name:");
         playerName = 'Player';
         document.getElementById("username-display").innerText = `Welcome, ${playerName}!`;
     }
-
+   
 const messageElement = document.getElementById("message");
     document.getElementById("rock").addEventListener("click", () => {
 rockSound.play();
+backgroundMusic.play();
         startGame("rock");
    }); document.getElementById("paper").addEventListener("click", () => 
    {
    paperSound.play();
    startGame("paper");
+   backgroundMusic.play();
    });
     document.getElementById("scissors").addEventListener("click", () =>  {
-   scissorsSound.play();
+   scissorsSound.play();   
    startGame("scissors");
+   backgroundMusic.play();
    }
    );
  document.getElementById("play-again").addEventListener("click", resetGame);
