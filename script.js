@@ -93,6 +93,7 @@ document.getElementById("options").style.display = "block"; document.getElementB
 }
 
 } else {
+    
     alert("ok, maybe next time");
 }
 
