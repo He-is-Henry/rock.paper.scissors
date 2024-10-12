@@ -81,6 +81,14 @@ document.getElementById("options").style.display = "none";
 document.getElementById("heading").innerHTML = "Restart?";
     },3000);
     }
+    
+    document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        backgroundMusic.pause();
+    } else {
+        backgroundMusic.play();
+    }
+});
 
     function resetGame() {
         document.getElementById("message").innerHTML = "";
