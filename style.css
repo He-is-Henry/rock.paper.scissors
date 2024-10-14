@@ -221,6 +221,44 @@ button:hover, button:focus {
     color: var(--text-color);
 }
 
+
+/* extra small */
+@media (max-width: 585px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    button {
+        width: 120px;
+        height: 80px;
+        font-size: 1em;
+    }
+
+    #username-display {
+        font-size: 1.6em;
+    }
+
+    #options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+    }
+
+    #rock {
+        margin-top: 60px;
+    }
+
+    #score {
+        top: 18px;
+    }
+}
+
 /* small */
 @media (min-width: 586px) {
     body {
@@ -250,6 +288,11 @@ button:hover, button:focus {
     body {
         font-size: 20px;
     }
+    
+    #game-container {
+        width: 90%;
+    }
+    
     #options {
         display: flex;
         flex-direction: row;
@@ -264,8 +307,8 @@ button:hover, button:focus {
     }
 
     button {
-        width: 220px;
-        height: 130px;
+        width: 180px;
+        height: 120px;
         font-size: 1.2em;
     }
     #rock, #paper, #scissors {
@@ -284,6 +327,10 @@ button:hover, button:focus {
 @media (min-width: 1024px) {
     body {
         font-size: 22px;
+    }
+    
+    #game-container {
+        width: 80%;
     }
     
     #options {
@@ -327,6 +374,11 @@ button:hover, button:focus {
         flex-wrap: wrap;
         column-gap: 10px;
     }
+    
+    #game-container {
+        width: 80%;
+    }
+    
 
     h1 {
         font-size: 2em;
