@@ -48,7 +48,7 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 1500px;
-    min-height: 250px;
+    min-height: 70vh;
     margin-top: 150px;
     position: relative;
     flex-wrap: wrap;
