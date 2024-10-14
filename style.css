@@ -321,6 +321,9 @@ button:hover, button:focus {
     #score {
         top: 70px;
     }
+    #message {
+        font-size: 27px;
+    }
 }
 
 /* xl */
@@ -358,6 +361,9 @@ button:hover, button:focus {
     
     #score {
         top: 70px;
+    }
+    #message {
+        font-size: 30px;
     }
 }
 
@@ -398,5 +404,8 @@ button:hover, button:focus {
     
     #score {
         top: 70px;
+    }
+    #message {
+        font-size: 32px;
     }
 }
