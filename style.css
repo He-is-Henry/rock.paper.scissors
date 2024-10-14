@@ -223,6 +223,8 @@ button:hover, button:focus {
     opacity: 0; 
     font-family: monospace;
     background: var(--secondary-color);
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .fall {
