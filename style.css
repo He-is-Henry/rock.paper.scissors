@@ -226,8 +226,8 @@ button:hover, button:focus {
       font-size: 18px;
   }  
       #game-container {
-          width: 80%;
-          min-height: 650px;
+          width: 90%;
+          min-height: 800px;
           margin-top: 0;
       }
        #options {
