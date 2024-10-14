@@ -61,7 +61,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    flex-shrink: 1;
 }
 
 h1 {
@@ -82,12 +81,12 @@ h1 {
 }
 
 #rock {
-    margin-top: 80px;
+    margin-top: 70px;
 }
 button {
     position: relative;
-    width: 150px;
-    height: 100px;
+    width: 120px;
+    height: 80px;
     padding: 20px 15px;
     margin: 10px;
     font-size: var(--font-size-normal);
@@ -220,4 +219,49 @@ button:hover, button:focus {
     text-align: center;
     text-decoration: none;
     color: var(--text-color);
+}
+
+/* small */
+@media (min-width: 700px){
+  body {
+      display: flex;
+      font-size: 18px;
+      width: 100vw;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      align-items: center;
+  }  
+      #game-container {
+          display: flex;
+          width: 95%;
+          min-height: 1000px;
+          margin-top: 0;
+          align-items: center;
+          align-content: center;
+      }
+       #options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        transform: scale(2.0);
+        margin-top: 30px;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    #score {
+        top: 130px;
+        transform: scale(1.5);
+    }
+    #username-display {
+        font-size: 3em;
+    }
+    #message {
+        font-size: 2em;
+    }
 }
