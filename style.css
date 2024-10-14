@@ -29,40 +29,62 @@ body {
     flex-direction: column;  
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--primary-color);
-    background-image: url('img/images.jpeg');
+    background-image: url('image/images.jpeg');
     background-size: cover;
-    repeat: no-repeat;
+    background-repeat: no-repeat;
     position: relative;
 }
 
 #game-container {
-    width: 80%;
+    width: 70%;
     background: rgba(218, 0, 109, 0.4);
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
     display: flex;
-    align-content: center;
     justify-content: center;
-    position: absolute;
-    top: 105px;
-    min-height: 200px;
+    align-items: center;
+    max-width: 1500px;
+    min-width: 300px;
+    min-height: 30vh;
     margin-top: 120px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
 h1 {
     display: block;
+    width: 100%;
     font-size: 1.5em;
     font-weight: bold;
     color: var(--text-color);
-    position: fixed;
-    top: 150px;
+    position: absolute;
+    top: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: cursive;
+    z-index: 1;
+    background-color: var(--secondary-color);
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 500px;
 }
 
+#rock {
+    margin-top: 50px;
+}
 button {
+    position: relative;
     width: 150px;
     height: 100px;
     padding: 20px 15px;
@@ -70,6 +92,8 @@ button {
     font-size: var(--font-size-normal);
     cursor: pointer;
     display: flex;
+    flex-grow: 1;
+    max-width: 300px;            
     align-items: center;
     place-content: center;
     margin-bottom: 20px;
@@ -77,22 +101,49 @@ button {
     border-radius: 5px;
     color: var(--text-color);
     background-color: var(--button-background);
+    transition: transform 0.3s ease-in-out; 
+}
+
+.dance-animation {
+    animation: dance 2s forwards;
+}
+
+@keyframes dance {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    25% {
+        transform: rotate(360deg) translate(30px, 60px);
+    }
+    50% {
+        transform: rotate(720deg) translate(0, 0);
+    }
+    75% {
+        transform: rotate(1080 deg) translate(-30px, 60px);
+    }
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+    }
 }
 
 button:hover, button:focus {
     background-color: var(--button-hover);
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
 #message {
     margin-top: 20px;
+    margin-bottom: 20px;
     font-size: var(--font-size-large);
     display: block;
     color: var(--text-color);
     opacity: 0; 
+    font-family: monospace;
 }
 
 .fall {
-    animation: fall 3s forwards; 
+    animation: fall 5s forwards; 
     opacity: 1; 
 }
 
@@ -101,7 +152,7 @@ button:hover, button:focus {
         transform: translateY(-100px); 
         opacity: 0; 
     }
-    65% {
+    50% {
         transform: translateY(0); 
         opacity: 1; 
     }
@@ -116,14 +167,15 @@ button:hover, button:focus {
     display: none;
     white-space: nowrap;
     position: absolute;
-    bottom: 0;
-    width: 100px;
-    height: 50px;
+    bottom: -7px;
+    height: 70px;
+    width: auto;
+    margin: 10px;
 }
 
 #score {
     position: fixed;
-    top: 30px;
+    top: 35px;
     display: flex;
     flex-direction: row;
     place-content: center;
@@ -132,13 +184,15 @@ button:hover, button:focus {
 }
 
 #score p {
-    border: 2px double black;
+    border: 3px double black;
     margin: 20px;
     padding: 10px;
 }
 
 #user-score, #computer-score, #tie-score {
     font-weight: bolder;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 #user-score {
@@ -157,79 +211,140 @@ button:hover, button:focus {
 
 #username-display {
     font-size: 2em;
+    background-color: var(--secondary-color);
     position: fixed;
-    top: 10px;
+    top: 0;
     white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    text-decoration: ;
+    color: var(--text-color);
 }
 
-/* Extra small */
-@media (max-width: 575.98px) {
-    body {
-        font-size: 12px;
-    }
-    button {
-        width: 100px;
-        height: 70px;
-        font-size: 14px;
-    }
-    #game-container {
-        width: 80%;
-        margin-top: 80px;
-    }
-}
-
-/* Small */
-@media (min-width: 576px) {
-    body {
-        font-size: 14px;
-    }
-    button {
-        width: 120px;
-        height: 80px;
-    }
-    #game-container {
-        width: 80%;
-    }
-}
-
-/* Large */
-@media (min-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-    button {
-        width: 140px;
-        height: 90px;
-    }
-    #game-container {
-        width: 80%;
-    }
-}
-
-/* XL */
-@media (min-width: 992px) {
+/* small */
+@media (min-width: 586px) {
     body {
         font-size: 18px;
     }
-    button {
-        width: 160px;
-        height: 100px;
+
+    h1 {
+        font-size: 2em;
     }
-    #game-container {
-        width: 70%;
+    #rock {
+        margin-top: 80px;
+    }
+
+    button {
+        width: 200px;
+        height: 120px;
+        font-size: 1.1em;
+    }
+
+    #username-display {
+        font-size: 2.5em;
     }
 }
 
-/* XXL */
-@media (min-width: 1200px) {
+/* large */
+@media (min-width: 768px) {
     body {
         font-size: 20px;
     }
+    #options {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        width: 220px;
+        height: 130px;
+        font-size: 1.2em;
+    }
+    #rock, #paper, #scissors {
+        margin-top: 20px;
+    }    
+
+    #username-display {
+        font-size: 2.7em;
+    }
+    #score {
+        top: 70px;
+    }
+}
+
+/* xl */
+@media (min-width: 1024px) {
+    body {
+        font-size: 22px;
+    }
+    
+    #options {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
     button {
         width: 180px;
-        height: 110px;
+        height: 120px;
+        font-size: 1.3em;
     }
-    #game-container {
-        width: 60%;
+
+    #username-display {
+        font-size: 3em;
+    }
+    
+    #score {
+        top: 70px;
+    }
+}
+
+/* xxl */
+@media (min-width: 1440px) {
+    body {
+        font-size: 24px;
+    }
+    #options {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+    #rock, #paper, #scissors {
+        margin-top: 40px;
+    }
+    button {
+        width: 280px;
+        height: 180px;
+        font-size: 1.4em;
+    }
+
+    #username-display {
+        font-size: 3.2em;
+    }
+    
+    #score {
+        top: 70px;
     }
 }

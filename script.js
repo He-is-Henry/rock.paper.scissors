@@ -11,6 +11,7 @@ const tieSound = new Audio('audio/tie.mp3');
 const backgroundMusic = new Audio('audio/background.mp3');
 
 let play = confirm("Shall we play rock paper scissors?");
+const buttons = document.querySelectorAll('button');
 
 if (play) {
 
@@ -44,6 +45,10 @@ backgroundMusic.play();
    }
    );
  document.getElementById("play-again").addEventListener("click", resetGame);
+ 
+ buttons.forEach(button => {
+    button.addEventListener("click", () => triggerAnimation(button));
+});
 
     function startGame(playerChoice) {
         let computerChoice = Math.floor(Math.random() * 3);
@@ -51,7 +56,7 @@ backgroundMusic.play();
         let computer = choices[computerChoice];
 
         setTimeout(() => {
-        let message = `Computer chose: ${computer}<br>`;
+        let message = `Computer chose: ${computer}, <br> ${playerName} chose: ${playerChoice} <br> `;
 
         if (playerChoice === computer) {
             message += "It's a tie!";
@@ -60,11 +65,11 @@ backgroundMusic.play();
         } else if ((playerChoice === "rock" && computer === "scissors") || 
                    (playerChoice === "paper" && computer === "rock") || 
                    (playerChoice === "scissors" && computer === "paper")) {
-            message += `${playerName} wins!`;
+            message += `${playerName} wins!<br>`;
             userScore++;
             winSound.play()
         } else {
-            message += "Computer wins!";
+            message += `Computer wins!<br>`;
             computerScore++;
             lossSound.play()
         }
@@ -73,7 +78,7 @@ messageElement.innerHTML = message;
 messageElement.classList.add('fall');
 setTimeout(() => {
     messageElement.classList.remove('fall');
-}, 3000);
+}, 5000);
 
         document.getElementById("play-again").style.display = "block";
   
@@ -90,6 +95,13 @@ document.getElementById("heading").innerHTML = "Restart?";
     }
 });
 
+    function triggerAnimation(button) {
+    button.classList.add('dance-animation'); 
+    setTimeout(() => {
+        button.classList.remove('dance-animation'); 
+    }, 2000);
+    }
+    
     function resetGame() {
         document.getElementById("message").innerHTML = "";
 document.getElementById("heading").innerHTML = "Select rock, paper or scissors";
@@ -97,8 +109,9 @@ document.getElementById("user-score").innerText = userScore;
 document.getElementById("computer-score").innerText = computerScore;
 document.getElementById("tie-score").innerText = ties;
 
-document.getElementById("options").style.display = "block"; document.getElementById("play-again").style.display = "none";
+document.getElementById("options").style.display = "flex"; document.getElementById("play-again").style.display = "none";
 }
+
 
 } else {
     
