@@ -48,7 +48,7 @@ body {
     align-items: center;
     max-width: 1500px;
     min-width: 300px;
-    min-height: 35vh;
+    min-height: 300px;
     margin-top: 120px;
     position: relative;
     flex-wrap: wrap;
@@ -264,10 +264,6 @@ button:hover, button:focus {
     body {
         font-size: 18px;
     }
-    #game-container {
-        width: 90%;
-        height: 50%;
-    }
 
     h1 {
         font-size: 2em;
@@ -298,8 +294,7 @@ button:hover, button:focus {
     }
     
     #game-container {
-        width: 90%;
-        height: 60vh;
+        width: 90%;                
     }
     
     #options {
@@ -331,7 +326,7 @@ button:hover, button:focus {
         top: 70px;
     }
     #message {
-        font-size: 29px;
+    9   font-size: 29px;
     }
 }
 
@@ -343,7 +338,6 @@ button:hover, button:focus {
     
     #game-container {
         width: 80%;
-        height: 50vh;
     }
     
     #options {
@@ -393,20 +387,19 @@ button:hover, button:focus {
     
     #game-container {
         width: 80%;
-        height: 50vh;
     }
     
 
     h1 {
         font-size: 2em;
     }
-    #rock, #paper, #scissors {
-        margin-top: 40px;
+    #rock, #paper, #scisso    rs {
+        margin-top: 40px;        
     }
     button {
         width: 280px;
         height: 180px;
-        font-size: 1.4em;
+        font-size: 1.4em;        
     }
 
     #username-display {
