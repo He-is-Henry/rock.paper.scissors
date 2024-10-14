@@ -257,48 +257,7 @@ button:hover, button:focus {
 }
 
 
-/* large */
-@media (min-width: 768px) {
-    body {
-        font-size: 20px;
-    }
-    
-    #game-container {
-        width: 90%;                
-    }
-    
-    #options {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        column-gap: 10px;
-    }
 
-    h1 {
-        font-size: 1.5em;
-    }
-
-    button {
-        width: 180px;
-        height: 120px;
-        font-size: 1.2em;
-    }
-    #rock, #paper, #scissors {
-        margin-top: 20px;
-    }    
-
-    #username-display {
-        font-size: 2.7em;
-    }
-    #score {
-        top: 70px;
-    }
-    #message {
-    9   font-size: 29px;
-    }
-}
 
 /* xl */
 @media (min-width: 1024px) {
