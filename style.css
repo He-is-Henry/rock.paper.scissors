@@ -220,6 +220,42 @@ button:hover, button:focus {
     color: var(--text-color);
 }
 
+/* small */
+@media (min-width: 578px){
+  body {
+      font-size: 18px;
+  }  
+      #game-container {
+          width: 80%;
+          min-height: 650px;
+          margin-top: 0;
+      }
+       #options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        transform: scale(1.3);
+        margin-top: 30px;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    #score {
+        top: 130px;
+        transform: scale(1.5);
+    }
+    #username-displau {
+        font-size: 3em;
+    }
+    #message {
+        font-size: 2em;
+    }
+}
+
 
 /* large */
 @media (min-width: 768px) {
@@ -233,7 +269,7 @@ button:hover, button:focus {
     
     #options {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
