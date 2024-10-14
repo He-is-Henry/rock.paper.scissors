@@ -47,7 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 1500px;
-    min-height: 200px;
+    min-height: 320px;
     margin-top: 120px;
     position: relative;
     flex-wrap: wrap;
@@ -223,16 +223,21 @@ button:hover, button:focus {
 /* small */
 @media (min-width: 700px){
   body {
+      display: flex;
       font-size: 18px;
       width: 100vw;
       align-content: center;
+      align-items: center;
       justify-content: center;
       align-items: center;
   }  
       #game-container {
+          display: flex;
           width: 95%;
           min-height: 1000px;
           margin-top: 0;
+          align-items: center;
+          align-content: center;
       }
        #options {
         display: flex;
