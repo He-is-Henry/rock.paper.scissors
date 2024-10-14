@@ -264,6 +264,10 @@ button:hover, button:focus {
     body {
         font-size: 18px;
     }
+    #game-container {
+        width: 90%;
+        height: 50%;
+    }
 
     h1 {
         font-size: 2em;
@@ -295,6 +299,7 @@ button:hover, button:focus {
     
     #game-container {
         width: 90%;
+        height: 60vh;
     }
     
     #options {
@@ -338,6 +343,7 @@ button:hover, button:focus {
     
     #game-container {
         width: 80%;
+        height: 50vh;
     }
     
     #options {
@@ -387,6 +393,7 @@ button:hover, button:focus {
     
     #game-container {
         width: 80%;
+        height: 50vh;
     }
     
 
