@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">  
+    <meta charset="UTF-8">   
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <div class="overlay" id="overlay"></div>
+    <div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <h2>Shall we play Rock Paper Scissors?</h2>
+        <button id="confirm-play">Yes</button>
+        <button id="cancel-play">No</button>
+    </div>
+</div>
+
+<div id="username-modal" class="modal">
+    <div class="modal-content">
+        <h2>Please enter your name:</h2>
+        <input type="text" id="username-input" />
+        <button id="submit-username">Submit</button>
+    </div>
+</div>
+
     <div id="username-display"></div>
     <div id="score">
     <p>User Score: <br> <span id="user-score">0</span></p>

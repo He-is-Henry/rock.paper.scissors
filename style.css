@@ -38,6 +38,87 @@ body {
     position: relative;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--text-color);
+    z-index: 900;
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal headings */
+.modal-content h2 {
+    color: var(--primary-color);
+    font-size: var(--font-size-large);
+    margin-bottom: 20px;
+}
+
+/* Input field for username */
+#username-input {
+    width: 100%;
+    padding: 10px;
+    font-size: var(--font-size-normal);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #000;
+}
+
+/* Button styling */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: var(--font-size-normal);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Modal buttons inline */
+.modal-content button {
+    margin: 10px;
+    width: 100px;
+    position: relative;
+    left: calc(50% - 60px);
+}
+
 #game-container {
     width: 80%;
     background: rgba(218, 0, 109, 0.4);
