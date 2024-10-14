@@ -224,6 +224,10 @@ button:hover, button:focus {
 @media (min-width: 700px){
   body {
       font-size: 18px;
+      width: 100vh;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
   }  
       #game-container {
           width: 95%;
@@ -254,5 +258,4 @@ button:hover, button:focus {
     #message {
         font-size: 2em;
     }
-    }
-    
+}
