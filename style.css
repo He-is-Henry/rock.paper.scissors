@@ -48,7 +48,7 @@ body {
     align-items: center;
     max-width: 1500px;
     min-width: 300px;
-    min-height: 30vh;
+    min-height: 300px;
     margin-top: 120px;
     position: relative;
     flex-wrap: wrap;
@@ -281,6 +281,10 @@ button:hover, button:focus {
     #username-display {
         font-size: 2.5em;
     }
+    
+    #message {
+        font-size: 27px;
+    }
 }
 
 /* large */
@@ -322,7 +326,7 @@ button:hover, button:focus {
         top: 70px;
     }
     #message {
-        font-size: 27px;
+        font-size: 29px;
     }
 }
 
@@ -406,6 +410,5 @@ button:hover, button:focus {
         top: 70px;
     }
     #message {
-        font-size: 32px;
-    }
+        font-size: 30px;
 }
