@@ -19,7 +19,40 @@ const usernameDisplay = document.getElementById("username-display");
 const messageElement = document.getElementById("message");
 const playAgainButton = document.getElementById("play-again");
 const buttons = document.querySelectorAll('button');
-const overlay = document.getElementById("overlay");
+const overlay = document.getElementById("overlay")
+
+
+let highlightInterval;
+let currentHighlightedIndex = 0;
+
+
+const computerOptions = [
+    document.getElementById("com_rock"),
+    document.getElementById("com_paper"),
+
+    document.getElementById("com_scissors")
+];
+
+function startComputerHighlight() {
+   
+   currentHighlightedIndex = 0; 
+   console.log('highlighting started');
+   highlightInterval = setInterval(() => {
+      console.log('highlighting index');
+       computerOptions[currentHighlightedIndex].classList.remove("highlight");
+
+       currentHighlightedIndex = (currentHighlightedIndex + 1) % computerOptions.length;
+       
+       computerOptions[currentHighlightedIndex].classList.add("highlight");
+   }, 200);
+}
+
+function stopComputerHighlight() {
+    clearInterval(highlightInterval);
+    computerOptions.forEach(option => option.classList.remove("highlight"));
+    computerOptions[currentHighlightedIndex].classList.add("highlight");
+    return currentHighlightedIndex; // Return the current index here
+}
 
 let playerName = 'Player'; // Default name
 
@@ -29,7 +62,8 @@ confirmationModal.style.display = 'flex';
 // Handle the 'Yes' or 'No' from confirmation modal
 document.getElementById("confirm-play").addEventListener("click", () => {
     confirmationModal.style.display = 'none'; // Hide confirmation modal 
-    usernameModal.style.display = 'block'; // Show username modal
+    usernameModal.style.display = 'block';
+    backgroundMusic.play();
 });
 
 document.getElementById("cancel-play").addEventListener("click", () => {
@@ -43,29 +77,27 @@ document.getElementById("submit-username").addEventListener("click", () => {
     usernameDisplay.innerText = `Welcome, ${playerName}!`;
     usernameModal.style.display = 'none';
     overlay.style.display = 'none'  // Hide username modal and overlay
+    startComputerHighlight();
     startGameSetup(); // Proceed to game setup
 });
 
 // Game setup and event listeners
 function startGameSetup() {
     backgroundMusic.loop = true;
-    backgroundMusic.volume = 0.2;
+    backgroundMusic.volume = 0.4;
 
     document.getElementById("rock").addEventListener("click", () => {
         rockSound.play();
-        backgroundMusic.play();
         startGame("rock");
     });
 
     document.getElementById("paper").addEventListener("click", () => {
         paperSound.play();
-        backgroundMusic.play();
         startGame("paper");
     });
 
     document.getElementById("scissors").addEventListener("click", () => {
         scissorsSound.play();
-        backgroundMusic.play();
         startGame("scissors");
     });
 
@@ -76,14 +108,18 @@ function startGameSetup() {
     });
 }
 
-// Core game logic (same as your existing code)
-function startGame(playerChoice) {
-    let computerChoice = Math.floor(Math.random() * 3);
-    let choices = ["rock", "paper", "scissors"];
-    let computer = choices[computerChoice];
 
-    setTimeout(() => {
-        let message = `Computer chose: ${computer}, <br> ${playerName} chose: ${playerChoice} <br> `;
+
+// Core game logic 
+function startGame(playerChoice) {
+
+   setTimeout(() => {
+       let computerChoiceIndex = stopComputerHighlight();
+    let choices = ["rock", "paper", "scissors"];
+    let computer = choices[computerChoiceIndex];
+
+        setTimeout(() => {
+            let message = `Computer chose: ${computer}, <br> ${playerName} chose: ${playerChoice} <br> `;
 
         if (playerChoice === computer) {
             message += "It's a tie!";
@@ -100,21 +136,23 @@ function startGame(playerChoice) {
             computerScore++;
             lossSound.play();
         }
+        
 
         messageElement.innerHTML = message;
         messageElement.classList.add('fall');
-        setTimeout(() => {
-            messageElement.classList.remove('fall');
-        }, 5000);
-
+        messageElement.style.display = "block"
         document.getElementById("play-again").style.display = "block";
-        document.getElementById("options").style.display = "none";
+        document.getElementById("options").style.display = "none";        
         document.getElementById("heading").innerHTML = "Restart?";
-    }, 3000);
+}, 1000); 
+   }, 1000)
 }
+
 
 // Reset game
 function resetGame() {
+    startComputerHighlight();
+    
     messageElement.innerHTML = "";
     document.getElementById("heading").innerHTML = "Select rock, paper or scissors";
     document.getElementById("user-score").innerText = userScore;
@@ -123,6 +161,7 @@ function resetGame() {
 
     document.getElementById("options").style.display = "flex";
     playAgainButton.style.display = "none";
+    document.getElementById("message").style.display = "none";
 }
 
 // Button animation
@@ -130,7 +169,7 @@ function triggerAnimation(button) {
     button.classList.add('dance-animation');
     setTimeout(() => {
         button.classList.remove('dance-animation');
-    }, 2000);
+    }, 1500);
 }
 
 // Pause background music on page visibility change

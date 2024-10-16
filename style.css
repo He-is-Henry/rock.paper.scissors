@@ -18,12 +18,23 @@
 }
 
 img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border: 2px solid var(--primary-color);
     border-radius: 50%;
     margin-bottom: 20px;
 }
+
+h2 {
+    width: 100%;
+    align-text: center;
+    margin: 0 0 10px 10px;
+}
+
+.you {
+    margin: 50px 0 0 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex; 
@@ -35,8 +46,7 @@ body {
     background-color: var(--primary-color);
     background-image: url('image/images.jpeg');
     background-size: cover;
-    background-repeat: no-repeat;#
-    position: relative;
+    background-repeat: no-repeat;
 }
 
 .overlay {
@@ -121,7 +131,7 @@ button:hover {
 }
 
 #game-container {
-    width: 80%;
+    width: 90%;
     background: var(--background-color);
     padding: 20px;
     border-radius: 20px;
@@ -130,19 +140,44 @@ button:hover {
     justify-content: center;
     align-items: center;
     max-width: 1500px;
-    min-height: 70vh;
+    min-height: 50vh;
+    max-height: 65vh;
     margin-top: 150px;
     position: relative;
     flex-wrap: wrap;
+    flex-wrap: 1;
+    z-index: 100;
 }
 
-#options {
+#options, #computer {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#options button, #computer button {
+    position: relative;
+    width: 60px;
+    height: 40px;
+    padding: 20px 15px;
+    margin: 10px;
+    font-size: var(--font-size-normal);
+    cursor: pointer;
+    display: flex;
+    flex-grow: 1;
+    max-width: 300px;            
+    align-items: center;
+    place-content: center;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    background-color: var(--button-background);
+    transition: transform 0.3s ease-in-out; 
 }
 
 h1 {
@@ -187,7 +222,7 @@ button {
 }
 
 .dance-animation {
-    animation: dance 2s forwards;
+    animation: dance 1.5s forwards;
 }
 
 @keyframes dance {
@@ -216,9 +251,13 @@ button:hover, button:focus {
 
 #message {
     margin-top: 20px;
+    width: 80vw;
+    min-height: 70px;
+    z-index: 1;
     margin-bottom: 20px;
     font-size: var(--font-size-large);
-    display: block;
+    display: fixed;
+    top: 40vh;
     color: var(--text-color);
     opacity: 0; 
     font-family: monospace;
@@ -252,10 +291,12 @@ button:hover, button:focus {
     display: none;
     white-space: nowrap;
     position: absolute;
-    bottom: -7px;
-    height: 70px;
+    bottom: 20px;
+    height: 50px;
     width: auto;
-    margin: 10px;
+    margin: 20px;
+    border-radius: 15px;
+    z-index: 10;
 }
 
 #score {
@@ -296,58 +337,23 @@ button:hover, button:focus {
 }
 
 #username-display {
-    font-size: 2em;
-    background-color: var(--primary-color);
+    font-family: fantasy;
+    font-size: var(--font-size-large);
+    background-color: var(--text-color);
     position: fixed;
     top: 0;
     white-space: nowrap;
     width: 100%;
     text-align: center;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
 
-/* small */
-@media (min-width: 700px){
-  body {
-      display: flex;
-      font-size: 18px;
-      width: 100vw;
-      align-content: center;
-      align-items: center;
-      justify-content: center;
-      align-items: center;
-  }  
-      #game-container {
-          display: flex;
-          width: 95%;
-          min-height: 1000px;
-          margin-top: 0;
-          align-items: center;
-          align-content: center;
-      }
-       #options {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        transform: scale(2.0);
-        margin-top: 30px;
-    }
-    h1 {
-        font-size: 2.5em;
-    }
-    
-    #score {
-        top: 130px;
-        transform: scale(1.5);
-    }
-    #username-display {
-        font-size: 3em;
-    }
-    #message {
-        font-size: 2em;
-    }
-    }
+
+
+.highlight {
+    border: 6px solid yellow; 
+    box-shadow: 0 0 30px yellow;
+    transition: box-shadow 0.3s ease, border 0.5s ease;
+}

@@ -31,11 +31,12 @@
     <p>Computer Score: <br> <span id="computer-score">0</span></p>
     <p>Ties: <br> <span id="tie-score">0</span></p>
 </div>
-     
     <div id="game-container">
-        <div id="message"></div>
+           <button id="play-again">Play Again</button>  
         <h1 id="heading">Select Rock, Paper or Scissors</h1>   
         <div id="options">
+            
+            <h2 class="you"> You</h2>
             <button id="rock" width="100">
                  <image src="image/rock.jpg" alt="rock"></button>
             
@@ -45,7 +46,22 @@
             <button id="scissors" width="100">
                 <image src="image/scissors.jpeg" alt="scissors">
             </button>
+           <div id="computer"> 
+            <h2> Computer </h2>
+            <button id="com_rock" width="100">
+                 <image src="image/rock.jpg" alt="rock"></button>
+            
+            <button id="com_paper" width="100">
+                <image src="image/paper.jpeg" alt="paper">
+            </button>
+            <button id="com_scissors" width="100">
+                <image src="image/scissors.jpeg" alt="scissors">
+            </button>
+            </div>
+            
         </div>
+        
+        <div id="message"></div>
         <button id="play-again">Play Again</button>   
         
     <audio id="rock-sound" src="audio/rock.mp3" preload="auto"></audio>
