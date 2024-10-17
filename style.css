@@ -7,8 +7,8 @@
     --button-background: var(--primary-color);
     --button-hover: var(--secondary-color);
     
-    --font-size-large: 24px; 
-    --font-size-normal: 16px;
+    --font-size-large: 2em; 
+    --font-size-normal: 1.3em;
 }
 
 * {
@@ -31,7 +31,8 @@ h2 {
     margin: 0 0 10px 10px;
 }
 
-.you {
+.you, 
+.computer {
     margin: 50px 0 0 0;
 }
 
@@ -47,6 +48,7 @@ body {
     background-image: url('image/images.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .overlay {
@@ -68,8 +70,8 @@ body {
     z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 }
 
@@ -140,13 +142,15 @@ button:hover {
     justify-content: center;
     align-items: center;
     max-width: 1500px;
+    flex-direction: column;
     min-height: 50vh;
-    max-height: 65vh;
+    max-height: 70vh;
     margin-top: 150px;
     position: relative;
     flex-wrap: wrap;
     flex-wrap: 1;
     z-index: 100;
+    overflow: hidden;
 }
 
 #options, #computer {
@@ -178,6 +182,7 @@ button:hover {
     color: var(--text-color);
     background-color: var(--button-background);
     transition: transform 0.3s ease-in-out; 
+    flex-basis: 30%;
 }
 
 h1 {
@@ -243,7 +248,8 @@ button {
     }
 }
 
-button:hover, button:focus {
+#options button:hover,
+options button:focus {
     background-color: var(--button-hover);
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
@@ -357,3 +363,12 @@ button:hover, button:focus {
     box-shadow: 0 0 30px var(--primary-color);
     transition: box-shadow 0.3s ease, border 0.5s ease;
 }
+
+
+        height: 70px;
+        padding: 20px;
+        font-size: 2em;
+    }
+}
+
+
