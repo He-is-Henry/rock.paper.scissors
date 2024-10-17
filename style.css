@@ -144,12 +144,11 @@ button:hover {
     align-items: center;
     max-width: 1500px;
     flex-direction: column;
-    min-height: 50vh;
+    min-height: 30vh;
     max-height: 70vh;
     margin-top: 150px;
     position: relative;
     flex-wrap: wrap;
-    flex-wrap: 1;
     z-index: 100;
     overflow: hidden;
 }
