@@ -146,7 +146,7 @@ button:hover {
     flex-direction: column;
     min-height: 30vh;
     max-height: 70vh;
-    margin-top: 150px;
+    margin-top: 180px;
     position: relative;
     flex-wrap: wrap;
     z-index: 100;
