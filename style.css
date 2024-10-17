@@ -353,7 +353,7 @@ button:hover, button:focus {
 
 
 .highlight {
-    border: 6px solid yellow; 
-    box-shadow: 0 0 30px yellow;
+    border: 6px solid var(--primary-color); 
+    box-shadow: 0 0 30px var(--primary-color);
     transition: box-shadow 0.3s ease, border 0.5s ease;
 }
