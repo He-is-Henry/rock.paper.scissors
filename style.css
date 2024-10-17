@@ -372,6 +372,7 @@ button {
 @media screen and (min-width: 658px) {
     #game-container {
         margin-top: 400px;
+        min-height: 35vh;
     }
 }
 
