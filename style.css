@@ -34,6 +34,7 @@ h2 {
 .you, 
 .computer {
     margin: 50px 0 0 0;
+    box-sizing: border-box;
 }
 
 body {
