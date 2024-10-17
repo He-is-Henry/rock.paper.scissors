@@ -34,7 +34,6 @@ h2 {
 .you, 
 .computer {
     margin: 50px 0 0 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -121,10 +120,6 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: var(--button-hover);
-}
-
 /* Modal buttons inline */
 .modal-content button {
     margin: 10px;
@@ -136,7 +131,7 @@ button:hover {
 #game-container {
     width: 90%;
     background: var(--background-color);
-    padding: 20px;
+    padding: 40px;
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -144,11 +139,12 @@ button:hover {
     align-items: center;
     max-width: 1500px;
     flex-direction: column;
-    min-height: 30vh;
+    min-height: 60vh;
     max-height: 70vh;
     margin-top: 180px;
     position: relative;
     flex-wrap: wrap;
+    flex-wrap: 1;
     z-index: 100;
     overflow: hidden;
 }
@@ -165,15 +161,13 @@ button:hover {
 
 #options button, #computer button {
     position: relative;
-    width: 60px;
+    width: 100px;
     height: 40px;
     padding: 20px 15px;
     margin: 10px;
     font-size: var(--font-size-normal);
     cursor: pointer;
-    display: flex;
-    flex-grow: 1;
-    max-width: 300px;            
+    display: flex;       
     align-items: center;
     place-content: center;
     margin-bottom: 20px;
@@ -182,8 +176,13 @@ button:hover {
     color: var(--text-color);
     background-color: var(--button-background);
     transition: transform 0.3s ease-in-out; 
-    flex-basis: 30%;    
+    flex-basis: 40%;    
 }
+
+#computer button {
+    animation: none;
+}
+
 
 h1 {
     display: block;
@@ -214,7 +213,6 @@ button {
     font-size: var(--font-size-normal);
     cursor: pointer;
     display: flex;
-    flex-grow: 1;
     max-width: 300px;            
     align-items: center;
     place-content: center;
@@ -249,7 +247,7 @@ button {
 }
 
 #options button:hover,
-options button:focus {
+#options button:focus {
     background-color: var(--button-hover);
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
@@ -257,20 +255,20 @@ options button:focus {
 
 #message {
     margin-top: 20px;
-    width: 80vw;
+    width: 100%;
     min-height: 70px;
     z-index: 1;
     margin-bottom: 20px;
     font-size: var(--font-size-large);
     display: fixed;
-    top: 40vh;
+    top: 35vh;
     color: var(--text-color);
     opacity: 0; 
     font-family: monospace;
     background: var(--secondary-color);
     border-radius: 20px;
-    padding: 10px;
     display: flex;
+    padding: 10px;
     place-content: center;
     align-text: center;
 }
@@ -300,7 +298,7 @@ options button:focus {
     display: none;
     white-space: nowrap;
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     height: 50px;
     width: auto;
     margin: 20px;
@@ -371,12 +369,12 @@ options button:focus {
     transition: box-shadow 0.3s ease, border 0.5s ease;
     }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 658px) {
     #game-container {
-        margin-top: 380px;
-        padding-top: 50px;
+        margin-top: 400px;
     }
 }
+
 @media screen and (min-width: 768px) {
     h2 .you,
     h2 .computer {
@@ -401,7 +399,7 @@ options button:focus {
     }
 
     #game-container {
-        margin-top: 380px;
+        margin-top: 200px;
         padding-top: 50px;
     }
 
