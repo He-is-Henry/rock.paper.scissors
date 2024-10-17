@@ -202,8 +202,8 @@ h1 {
     margin-bottom: 500px;
 }
 
-#rock {
-    margin-top: 70px;
+#rock, com_rock {
+    margin-top: 10px;
 }
 button {
     position: relative;
