@@ -145,31 +145,50 @@ button {
     overflow: hidden;
 }
 
-#options, #computer {
+.options-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    flex-shrink: 1;
+    width: 100%;
+    flex-basis: 50%;
 }
 
-button {
+#options, #computer {
+    display: flex;
+    flex-wrap: wrap;    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+    gap: 10px;  
+    flex-shrink: 1;   
+}
+
+#options h2, 
+#computer h2 {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#options button,
+#computer button {
     position: relative;
-    width: 120px;
-    height: 80px;
-    padding: 20px 15px;
-    margin: 10px;
+    flex-basis: 30%;
+    width: 30%;
+    height: 70px;
+    padding: 10px;
     font-size: var(--font-size-normal);
     cursor: pointer;
     display: flex;
-    max-width: 300px;            
+    min-width: 70px;
+    max-width: 250px;           
     align-items: center;
     place-content: center;
     margin-bottom: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     color: var(--text-color);
     background-color: var(--button-background);
     transition: transform 0.3s ease-in-out; 
@@ -198,9 +217,6 @@ h1 {
     margin-bottom: 500px;
 }
 
-#rock, com_rock {
-    margin-top: 10px;
-}
 
 .dance-animation {
     animation: dance 1.5s forwards;
@@ -336,11 +352,8 @@ h1 {
     text-align: center;
     text-decoration: none;
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.you {
-    margin-top: 20px;
+    border: 2px solid var(--primary-color);, 
+    margin-top: 20px;    
 }
 
 .highlight {
@@ -352,12 +365,6 @@ h1 {
     
 
 @media screen and (min-width: 658px) {
-    .you,
-    .computer {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
     
     #game-container {
         margin-top: 400px;
@@ -365,12 +372,6 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
-    .you,
-    .computer {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
     #score {
         position: fixed;
@@ -393,10 +394,4 @@ h1 {
         padding-top: 50px;
     }
    
-    #options button, #computer button {
-        flex-basis: 30%;  
-        padding: 20px;
-        min-width: 120px; 
-        max-width: 250px; 
-    }
-}
+  }
