@@ -46,6 +46,13 @@ h2 {
     margin: 0 0 10px 10px;
 }
 
+
+
+#heading {
+    padding: 15px;
+}
+
+
 .overlay {
     position: fixed;
     top: 0;
@@ -137,7 +144,7 @@ button {
     flex-direction: column;
     min-height: 60vh;
     max-height: 70vh;
-    margin-top: 180px;
+    margin-top: 200px;
     position: relative;
     flex-wrap: wrap;
     flex-wrap: 1;
@@ -169,7 +176,7 @@ button {
     flex-basis: 100%;
     text-align: center;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 button {
@@ -311,6 +318,7 @@ h1 {
     place-content: center;
     justify-content: space-evenly;
     color: var(--text-color);
+    margin-top: 45px;
 }
 
 #score p {
@@ -324,6 +332,10 @@ h1 {
     font-weight: bolder;
     text-align: center;
     font-size: 2em;
+    text-shadow: -2px 0 black,
+    2px 0 black,
+    0 2px black,
+    0 -2px black;
 }
 
 #user-score {
@@ -346,13 +358,13 @@ h1 {
     background-color: var(--text-color);
     position: fixed;
     top: 0;
-    white-space: nowrap;
+    white-space: wrap;
     width: 100%;
     text-align: center;
     text-decoration: none;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);, 
-    margin-top: 20px;    
+    margin-top: 20px;   
 }
 
 .highlight {
@@ -384,7 +396,7 @@ h1 {
         min-height: 35vh;
         margin-top: 200px;
         padding-top: 50px;
-        margin-top: 200px;
+        margin-top: 250px;
     }
     #options button,
     #computer button {
@@ -396,7 +408,7 @@ h1 {
 @media screen and (min-width: 1040px) {
     #game-container {
         max-width: 700px;
-        margin-top: 300px;
+        margin-top: 350px;
     }
      #options button,
     #computer button {
@@ -407,7 +419,7 @@ h1 {
 @media screen and (min-width: 1400px) {
     #game-container {
         max-width: 850px;
-        margin-top: 300px;
+        margin-top: 400px;
     }
      #options button,
     #computer button {
