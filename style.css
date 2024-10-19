@@ -336,6 +336,8 @@ h1 {
     2px 0 black,
     0 2px black,
     0 -2px black;
+    -webkit-text-stroke: 2px black;
+    text-stroke: 2px black;
 }
 
 #user-score {
@@ -449,4 +451,4 @@ h1 {
     #computer button {
         width: 150px;
     }
-    }
+}
