@@ -1,96 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">   
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- username display -->
-    <div id="username-display"></div>
-    
-    <!-- score counter -->
-    <div id="score">
-    <p>User Score: <br> <span id="user-score">0</span></p>
-    <p>Computer Score: <br> <span id="computer-score">0</span></p>
-    <p>Ties: <br> <span id="tie-score">0</span></p>
-</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <button id="toggle-button" aria-label="toggle-button">🌞</button>
 
-    <!-- container for the whole game -->
-    <div id="game-container">
-        
-    <!-- Empty overlay to cover game -->
-        <div class="overlay" id="overlay"></div>
-        
-        <!-- modal to confirm gameplay -->
-<div id="confirmation-modal" class="modal">
-    <div class="modal-content">
-        <h2>Shall we play Rock Paper Scissors?</h2>
-        <button id="confirm-play">Yes</button>
-        <button id="cancel-play">No</button>
-    </div>
-</div>
+        <!-- Sun emoji for
+      light mode -->
+        <!-- username display -->
+        <div id="username-display"></div>
 
-<!-- prompt to enter name-->
-<div id="username-modal" class="modal">
-    <div class="modal-content">
-        <h2>Please enter your name:</h2>
-        <input type="text" id="username-input">
-        <button id="submit-username">Submit</button>
-    </div>
-</div>
+        <!-- score counter -->
+        <div id="score">
+            <p>
+                User Score: <br />
+                <span id="user-score">0</span>
+            </p>
+            <p>
+                Computer Score: <br />
+                <span id="computer-score">0</span>
+            </p>
+            <p>
+                Ties: <br />
+                <span id="tie-score">0</span>
+            </p>
+        </div>
 
-<!-- play again button -->
-   <button id="play-again">Play Again</button>  
-   
-   <!-- game interface -->
-        <h1 id="heading">Select Rock, Paper or Scissors</h1>   
-        <div class="options-wrapper">
-            <div id="options">
-            <h2 class="you"> You</h2>                
-            <button id="rock">
-                 <img src="image/rock.jpg" alt="rock"></button>
-            
-            <button id="paper">
-                <img src="image/paper.jpeg" alt="paper">
-            </button>
-            <button id="scissors">
-                <img src="image/scissors.jpeg" alt="scissors">
-            </button>  
+        <!-- container for the whole game -->
+        <div id="game-container">
+            <!-- Empty overlay to cover game -->
+            <div class="overlay" id="overlay"></div>
+
+            <!-- modal to confirm gameplay -->
+            <div id="confirmation-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Shall we play Rock Paper Scissors?</h2>
+                    <button id="confirm-play">Yes</button>
+                    <button id="cancel-play">No</button>
+                </div>
+            </div>
+
+            <!-- prompt to enter name-->
+            <div id="username-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Please enter your name:</h2>
+                    <input type="text" id="username-input" />
+                    <button id="submit-username">Submit</button>
+                </div>
+            </div>
+
+            <!-- play again button -->
+            <button id="play-again">Play Again</button>
+
+            <!-- game interface -->
+            <h1 id="heading">Select Rock, Paper or Scissors</h1>
+            <div class="options-wrapper">
+                <div id="options">
+                    <h2 class="you">You</h2>
+                    <button id="rock">
+                        <img src="image/rock.jpg" alt="rock" />
+                    </button>
+
+                    <button id="paper">
+                        <img src="image/paper.jpeg" alt="paper" />
+                    </button>
+                    <button id="scissors">
+                        <img src="image/scissors.jpeg" alt="scissors" />
+                    </button>
                 </div>
 
-                
-           <div id="computer"> 
-               <h2 class="computer"> Computer </h2>
-            <button id="com_rock">
-                 <img src="image/rock.jpg" alt="rock"></button>
-            
-            <button id="com_paper">
-                <img src="image/paper.jpeg" alt="paper">
-            </button>
-            
-            <button id="com_scissors">
-                <img src="image/scissors.jpeg" alt="scissors">
-            </button>
-            
-            </div>
-            </div>
-            
-        
-        
-        <div id="message"></div>   
-        
-    <audio id="rock-sound" src="audio/rock.mp3" preload="auto"></audio>
-    <audio id="paper-sound" src="audio/paper.mp3" preload="auto"></audio>
-    <audio id="scissors-sound" src="audio/scissors.mp3" preload="auto"></audio>
-    <audio id="win-sound" src="audio/win.mp3" preload="auto"></audio>
-    <audio id="loss-sound" src="audio/loss.mp3" preload="auto"></audio>
-    <audio id="tie-sound" src="audio/tie.mp3" preload="auto"></audio>
-    <audio id="background-music" src="audio/background.mp3" preload="auto" loop></audio>
+                <div id="computer">
+                    <h2 class="computer">Computer</h2>
+                    <button id="com_rock">
+                        <img src="image/rock.jpg" alt="rock" />
+                    </button>
 
-    </div>
-    <script src="script.js"></script>
-</body>
-    </html>
-    
+                    <button id="com_paper">
+                        <img src="image/paper.jpeg" alt="paper" />
+                    </button>
+
+                    <button id="com_scissors">
+                        <img src="image/scissors.jpeg" alt="scissors" />
+                    </button>
+                </div>
+            </div>
+
+            <div id="message"></div>
+
+            <audio id="rock-sound" src="audio/rock.mp3" preload="auto"></audio>
+            <audio
+                id="paper-sound"
+                src="audio/paper.mp3"
+                preload="auto"
+            ></audio>
+            <audio
+                id="scissors-sound"
+                src="audio/scissors.mp3"
+                preload="auto"
+            ></audio>
+            <audio id="win-sound" src="audio/win.mp3" preload="auto"></audio>
+            <audio id="loss-sound" src="audio/loss.mp3" preload="auto"></audio>
+            <audio id="tie-sound" src="audio/tie.mp3" preload="auto"></audio>
+            <audio
+                id="background-music"
+                src="audio/background.mp3"
+                preload="auto"
+                loop
+            ></audio>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
