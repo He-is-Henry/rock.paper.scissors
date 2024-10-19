@@ -398,6 +398,16 @@ h1 {
         padding-top: 50px;
         margin-top: 250px;
     }
+    
+    #heading {
+        padding: 30px;
+    }
+    
+    #options h2,
+    #computer h2 {
+        margin-top: 65px;
+    }
+    
     #options button,
     #computer button {
         width: 100px;
@@ -414,6 +424,13 @@ h1 {
     #computer button {
         width: 150px;
     }
+    #heading {
+        padding: 40px;
+    }
+    #options h2,
+    #computer h2 {
+        margin-top: 75px;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -421,8 +438,15 @@ h1 {
         max-width: 850px;
         margin-top: 400px;
     }
+    #heading {
+        padding: 40px;
+    }
+    #options h2,
+    #computer h2 {
+        margin-top: 75px;
+    }
      #options button,
     #computer button {
         width: 150px;
     }
-}
+    }
