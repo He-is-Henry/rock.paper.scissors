@@ -21,6 +21,9 @@ const playAgainButton = document.getElementById("play-again");
 const buttons = document.querySelectorAll("button");
 const overlay = document.getElementById("overlay");
 const toggleButton = document.getElementById("toggle-button");
+// Get the volume control elements
+const volumeControl = document.getElementById("volume-control");
+const volumeDisplay = document.getElementById("volume-display");
 
 // Dark mode toggle
 toggleButton.addEventListener("click", () => {
@@ -30,6 +33,46 @@ toggleButton.addEventListener("click", () => {
     toggleButton.textContent = document.body.classList.contains("dark-mode")
         ? "🌙"
         : "🌞";
+});
+
+const menuButton = document.getElementById("menu-toggle");
+const menuOptions = document.getElementById("menu-options");
+
+menuButton.addEventListener("click", () => {
+    menuOptions.classList.toggle("show"); // Toggle menu visibility
+});
+
+// resetGame functionality
+const resetButton = document.getElementById("reset-game");
+resetButton.addEventListener("click", () => {
+    userScore = 0;
+    computerScore = 0;
+    ties = 0;
+
+    document.getElementById("user-score").innerText = userScore;
+    document.getElementById("computer-score").innerText = computerScore;
+    document.getElementById("tie-score").innerText = ties;
+    document.getElementById("heading").innerHTML = ""
+});
+
+function setVolume(volume) {
+    // Set the volume for all sounds
+    backgroundMusic.volume = volume;
+    rockSound.volume = volume;
+    paperSound.volume = volume;
+    scissorsSound.volume = volume;
+    winSound.volume = volume;
+    lossSound.volume = volume;
+    tieSound.volume = volume;
+
+    volumeDisplay.innerText = `Volume: ${volume * 100}%`; // Update display
+}
+
+volumeControl.addEventListener("input", function () {
+    const volume = volumeControl.value / 100;
+    console.log(`Volume set to: ${volume}`); // Debug log
+    // Convert from 0-100 to 0-1
+    setVolume(volume); // Call the function with the current slider value
 });
 
 let highlightInterval;
@@ -96,6 +139,10 @@ function startGame(playerChoice) {
                 computerScore++;
                 lossSound.play();
             }
+
+            document.getElementById("user-score").innerText = userScore;
+            document.getElementById("computer-score").innerText = computerScore;
+            document.getElementById("tie-score").innerText = ties;
 
             messageElement.innerHTML = message;
             messageElement.classList.add("fall");
