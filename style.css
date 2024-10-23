@@ -106,18 +106,6 @@ h2 {
     color: #000;
 }
 
-/* Button styling */
-button {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border: none;
-    padding: 10px 20px;
-    font-size: var(--font-size-normal);
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
 /* Modal buttons inline */
 .modal-content button {
     margin: 10px;
@@ -127,7 +115,79 @@ button {
     left: calc(50% - 60px);
 }
 
-#game-container {
+.menu-button {
+    display: inline-block;
+    width: 40px;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-line {
+    background-color: var(--text-color);
+    border: none;
+    padding: 0;
+    margin: 6px 0;
+    width: 35px;
+    height: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+}
+
+.settings-menu .menu-options {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: var(--primary-color);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    z-index: 99;
+}
+
+.menu-options li {
+    margin: 10px 0;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.menu-options button,
+.menu-options label {
+    color: var(--text-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    padding: 5px;
+    transition: 0.2s ease;
+    animation: none;
+}
+
+.menu-options input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.menu-options button:hover,
+.menu-options label:hover {
+    color: var(--button-hover);
+    text-decoration: underline;
+}
+
+/* Show the menu when toggled */
+.menu-options.show {
+    display: block;
+}
+
+.game-container {
     width: 90%;
     background: var(--background-color);
     padding: 40px;
@@ -140,11 +200,11 @@ button {
     flex-direction: column;
     min-height: 60vh;
     max-height: 70vh;
-    margin-top: 200px;
+    margin-top: 220px;
     position: relative;
     flex-wrap: wrap;
     flex-wrap: 1;
-    z-index: 100;
+    z-index: 90;
     overflow: hidden;
 }
 
@@ -176,8 +236,7 @@ button {
     margin-top: 50px;
 }
 
-#options button,
-#computer button {
+button {
     position: relative;
     width: 30%;
     height: 70px;
@@ -303,32 +362,48 @@ h1 {
 
 #score {
     position: fixed;
-    top: 25px;
+    top: 45px;
+    left: 10px;
     display: flex;
-    left: 5px;
     width: 100vw;
-    flex-basis: 33%;
-    flex-grow: 1;
-    flex-direction: row;
-    place-content: center;
     justify-content: space-evenly;
+    flex-direction: row;
+    gap: 3%;
     color: var(--text-color);
     margin-top: 45px;
 }
 
 #score p {
+    flex-basis: 20%;
     border: 3px double black;
-    margin: 20px;
-    padding: 10px;
     background: var(--primary-color);
+    white-space: wrap;
+    text-align: center;
+    justify-content: center;
+    place-content: center;
+    padding: 3px;
 }
 
+#toggle-button {
+    min-width: 2em;
+    max-width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: var(--text-color);
+    animation: none;
+    margin-right: 10px;
+    font-size: 2em;
+    animation: none;
+}
 #user-score,
 #computer-score,
 #tie-score {
     font-weight: bolder;
     text-align: center;
+    justify-content: center;
+    place-content: center;
     font-size: 2em;
+    padding: 25px;
     text-shadow:
         -2px 0 black,
         2px 0 black,
@@ -358,12 +433,14 @@ h1 {
     background-color: var(--text-color);
     position: fixed;
     top: 0;
+    right: 40px;
     white-space: wrap;
     width: 100%;
     text-align: center;
     text-decoration: none;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
+    margin-top: 5px;
 }
 
 .highlight {
@@ -372,23 +449,6 @@ h1 {
     transition:
         box-shadow 0.3s ease,
         border 0.5s ease;
-}
-
-#toggle-button {
-    width: 56px;
-    height: 56px;
-    border: 2px solid var(--button-background);
-    border-radius: 50%;
-    position: fixed;
-    top: 20px;
-    right: 10px;
-    z-index: 100;
-    background-color: white;
-    display: flex;
-    place-content: center;
-    font-size: 1.6em;
-    cursor: pointer;
-    animation: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -468,10 +528,50 @@ h1 {
 }
 
 .dark-mode {
-    --primary-color: #121212; /* Dark background */
-    --secondary-color: #bb86fc; /* Light purple for accents */
-    --background-color: #1e1e1e; /* Slightly lighter dark background */
-    --text-color: #e0e0e0; /* Light gray text */
+    --primary-color: #1b0e2d; /* Dark purple for borders and accents */
+    --secondary-color: #bb86fc; /* Light purple for glow effects */
+    --background-color: #0b0013; /* Very dark background (almost black) */
+    --text-color: #ffffff; /* White text for good contrast */
     --button-background: var(--primary-color);
     --button-hover: var(--secondary-color);
+}
+
+.dark-mode h2 {
+    color: var(--text-color); /* White for headings */
+}
+
+body.dark-mode {
+    background-color: var(--background-color);
+    background-image: none; /* No background image in dark mode */
+}
+
+.dark-mode #options button,
+.dark-mode #computer button {
+    background-color: var(--primary-color); /* Dark purple buttons */
+    color: var(--text-color); /* White text on buttons */
+    border: 2px solid var(--secondary-color); /* Light purple border */
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode #options button:hover,
+.dark-mode #computer button:hover {
+    background-color: var(--button-hover); /* Light purple on hover */
+    color: var(--primary-color); /* Dark purple text on hover */
+}
+
+.dark-mode .highlight {
+    border: 6px solid var(--secondary-color); /* Light purple border */
+    box-shadow: 0 0 30px var(--secondary-color); /* Glowing effect */
+    transition:
+        box-shadow 0.3s ease,
+        border 0.5s ease;
+}
+
+.dark-mode .game-container {
+    border: 3px dashed var(--primary-color); /* Dark purple dashed border */
+    color: var(--text-color); /* White text inside the game container */
+}
+
+.dark-mode .score {
+    border: 2px solid var(--secondary-color); /* Light purple scoreboard border */
 }
