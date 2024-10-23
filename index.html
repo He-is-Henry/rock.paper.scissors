@@ -7,8 +7,36 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <button id="toggle-button" aria-label="toggle-button">🌞</button>
+        <!-- Menu container with list items -->
+        <div class="settings-menu">
+            <div class="menu-button" id="menu-toggle">
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+                <div class="menu-line"></div>
+            </div>
 
+            <ul id="menu-options" class="menu-options">
+                <li>
+                    <label for="volume">Volume</label>
+                    <input id="volume-control" 
+                        type="range"
+                        id="volume"
+                        name="volume"
+                        min="0"
+                        max="100"
+                    />
+                    <p id="volume-display"></p>
+                </li>
+                <li>
+                    <button id="toggle-button" aria-label="toggle-button">
+                        🌞
+                    </button>
+                </li>
+                <li>
+                  <button id="reset-game">Reset Game</button>
+                  </li>
+            </ul>
+        </div>
         <!-- Sun emoji for
       light mode -->
         <!-- username display -->
@@ -16,22 +44,22 @@
 
         <!-- score counter -->
         <div id="score">
-            <p>
+            <p class="score">
                 User Score: <br />
                 <span id="user-score">0</span>
             </p>
-            <p>
+            <p class="score">
                 Computer Score: <br />
                 <span id="computer-score">0</span>
             </p>
-            <p>
+            <p class="score">
                 Ties: <br />
                 <span id="tie-score">0</span>
             </p>
         </div>
 
         <!-- container for the whole game -->
-        <div id="game-container">
+        <div id="game-container" class="game-container">
             <!-- Empty overlay to cover game -->
             <div class="overlay" id="overlay"></div>
 
@@ -58,7 +86,7 @@
 
             <!-- game interface -->
             <h1 id="heading">Select Rock, Paper or Scissors</h1>
-            <div class="options-wrapper">
+            <div id="options" class="options-wrapper">
                 <div id="options">
                     <h2 class="you">You</h2>
                     <button id="rock">
