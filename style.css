@@ -605,8 +605,8 @@ body.dark-mode {
 }
 
 .dark-mode #user-score,
-.dark-mode #computer-score, .dark-mode #tie-score {
+.dark-mode #computer-score,
+.dark-mode #tie-score {
     -webkit-text-stroke: 2px White;
     text-stroke: 2px White;
-    }
-    
+}
