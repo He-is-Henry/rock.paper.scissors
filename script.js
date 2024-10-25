@@ -24,6 +24,7 @@ const toggleButton = document.getElementById("toggle-button");
 // Get the volume control elements
 const volumeControl = document.getElementById("volume-control");
 const volumeDisplay = document.getElementById("volume-display");
+const editName = document.getElementById("edit-name");
 
 // Dark mode toggle
 toggleButton.addEventListener("click", () => {
@@ -41,9 +42,15 @@ const menuOptions = document.getElementById("menu-options");
 menuButton.addEventListener("click", () => {
     menuOptions.classList.toggle("show"); // Toggle menu visibility
 });
-
+const menuItems = document.querySelectorAll("li");
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        menuOptions.classList.remove("show");
+    });
+});
 // resetGame functionality
 const resetButton = document.getElementById("reset-game");
+
 resetButton.addEventListener("click", () => {
     userScore = 0;
     computerScore = 0;
@@ -52,7 +59,7 @@ resetButton.addEventListener("click", () => {
     document.getElementById("user-score").innerText = userScore;
     document.getElementById("computer-score").innerText = computerScore;
     document.getElementById("tie-score").innerText = ties;
-    document.getElementById("heading").innerHTML = ""
+    document.getElementById("heading").innerHTML = "";
 });
 
 function setVolume(volume) {
@@ -85,6 +92,7 @@ const computerOptions = [
 
     document.getElementById("com_scissors")
 ];
+
 let playerName = "Player"; // Default name
 
 // Show confirmation modal at the start
@@ -102,10 +110,20 @@ document.getElementById("cancel-play").addEventListener("click", () => {
     alert("Ok, maybe next time!");
 });
 
+// name edit function
+editName.addEventListener("click", () => {
+    usernameModal.style.display = "flex";
+});
 // Handle the username submission
 document.getElementById("submit-username").addEventListener("click", () => {
     playerName = usernameInput.value.trim() || "Player"; // Get input or default to 'Player'
-    usernameDisplay.innerText = `Welcome, ${playerName}!`;
+    let nameParts = playerName.split(/\s+/);
+    let firstName = nameParts[0];
+
+    // Limit the display to 10 characters
+    let displayName =
+        firstName.length > 10 ? firstName.slice(0, 10) + "..." : firstName;
+    usernameDisplay.innerText = `Welcome, ${displayName}!`;
     usernameModal.style.display = "none";
     overlay.style.display = "none"; // Hide username modal and overlay
     startComputerHighlight();

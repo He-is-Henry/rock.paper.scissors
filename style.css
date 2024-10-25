@@ -8,7 +8,8 @@
     --button-hover: var(--secondary-color);
 
     --font-size-large: 2em;
-    --font-size-normal: 1.3em;
+    --font-size-normal: 1.5em;
+    --font-size-small: 1.2em;
 }
 
 * {
@@ -30,7 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     gap: 20px;
     min-height: 100vh;
     background-color: var(--primary-color);
@@ -98,7 +99,7 @@ h2 {
 #username-input {
     width: 100%;
     padding: 10px;
-    font-size: var(--font-size-normal);
+    font-size: var(--font-size-small);
     border: 1px solid var(--primary-color);
     border-radius: 5px;
     margin-bottom: 20px;
@@ -118,16 +119,16 @@ h2 {
 .menu-button {
     display: inline-block;
     width: 40px;
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 4px;
+    top: 7px;
     margin: 0;
     padding: 0;
 }
 
 .menu-line {
     background-color: var(--text-color);
-    border: none;
+    border: 0.1px solid #333;
     padding: 0;
     margin: 6px 0;
     width: 35px;
@@ -144,17 +145,32 @@ h2 {
     position: absolute;
     top: 50px;
     right: 0;
-    background-color: var(--primary-color);
+    background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+    );
     padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    width: 70%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 250px; /* Wider menu */
     z-index: 99;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-10px); /* Slightly hidden upwards */
+}
+
+.menu-options.show {
+    display: block;
+    opacity: 1; /* Make it visible */
+    transform: translateY(0); /* Move into view */
 }
 
 .menu-options li {
     margin: 10px 0;
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 .menu-options button,
@@ -166,9 +182,16 @@ h2 {
     font-size: 1rem;
     text-align: left;
     width: 100%;
-    padding: 5px;
-    transition: 0.2s ease;
+    padding: 8px 5px; /* More padding for better clickability */
+    transition: background 0.3s ease; /* Background transition */
     animation: none;
+}
+
+.menu-options button:hover,
+.menu-options label:hover {
+    background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+    color: var(--button-hover);
+    text-decoration: none;
 }
 
 .menu-options input[type="range"] {
@@ -176,15 +199,17 @@ h2 {
     margin-top: 5px;
 }
 
-.menu-options button:hover,
-.menu-options label:hover {
-    color: var(--button-hover);
-    text-decoration: underline;
+/* Optional: Adding icons (you may need to include an icon font) */
+.menu-options li i {
+    margin-right: 10px; /* Space between icon and text */
+    color: var(--icon-color); /* Define your icon color */
 }
 
-/* Show the menu when toggled */
-.menu-options.show {
-    display: block;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .settings-menu .menu-options {
+        width: 80%; /* Make it full width on smaller screens */
+    }
 }
 
 .game-container {
@@ -200,7 +225,7 @@ h2 {
     flex-direction: column;
     min-height: 60vh;
     max-height: 70vh;
-    margin-top: 220px;
+    margin-top: 200px;
     position: relative;
     flex-wrap: wrap;
     flex-wrap: 1;
@@ -263,6 +288,7 @@ button {
 }
 
 h1 {
+    padding: 30px;
     display: block;
     width: 100%;
     font-size: 1.5em;
@@ -274,7 +300,11 @@ h1 {
     text-align: center;
     font-family: cursive;
     z-index: 1;
-    background-color: var(--primary-color);
+    background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+    );
     border-radius: 20px 20px 0 0;
     margin-bottom: 500px;
 }
@@ -370,7 +400,7 @@ h1 {
     flex-direction: row;
     gap: 3%;
     color: var(--text-color);
-    margin-top: 45px;
+    margin: 60px 0;
 }
 
 #score p {
@@ -404,11 +434,6 @@ h1 {
     place-content: center;
     font-size: 2em;
     padding: 25px;
-    text-shadow:
-        -2px 0 black,
-        2px 0 black,
-        0 2px black,
-        0 -2px black;
     -webkit-text-stroke: 2px black;
     text-stroke: 2px black;
 }
@@ -429,18 +454,24 @@ h1 {
 
 #username-display {
     font-family: fantasy;
-    font-size: var(--font-size-large);
-    background-color: var(--text-color);
+    font-size: var(--font-size-normal);
+    background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+    );
     position: fixed;
     top: 0;
-    right: 40px;
+    left: 0;
     white-space: wrap;
     width: 100%;
     text-align: center;
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--text-color);
     border: 2px solid var(--primary-color);
     margin-top: 5px;
+    padding: 10px;
+    z-index: 1;
 }
 
 .highlight {
@@ -474,10 +505,6 @@ h1 {
         margin-top: 200px;
         padding-top: 50px;
         margin-top: 250px;
-    }
-
-    #heading {
-        padding: 30px;
     }
 
     #options h2,
@@ -574,4 +601,10 @@ body.dark-mode {
 
 .dark-mode .score {
     border: 2px solid var(--secondary-color); /* Light purple scoreboard border */
+}
+
+.dark-mode #user-score,
+.dark-mode #computer-score, .dark-mode #tie-score {
+    -webkit-text-stroke: 2px White;
+    text-stroke: 2px White;
 }
