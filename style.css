@@ -116,6 +116,10 @@ h2 {
     left: calc(50% - 60px);
 }
 
+.confirm-play {
+    animation: none;
+}
+
 .menu-button {
     display: inline-block;
     width: 40px;
@@ -433,7 +437,7 @@ h1 {
     text-align: center;
     justify-content: center;
     place-content: center;
-    font-size: 2em;
+    font-size: 1.7em;
     padding: 25px;
     -webkit-text-stroke: 2px black;
     text-stroke: 2px black;

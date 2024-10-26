@@ -2,6 +2,11 @@ let userScore = 0;
 let computerScore = 0;
 let ties = 0;
 
+// Constants for buttons
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+
 // Define sounds
 const rockSound = new Audio("audio/rock.mp3");
 const paperSound = new Audio("audio/paper.mp3");
@@ -112,8 +117,9 @@ document.getElementById("cancel-play").addEventListener("click", () => {
 
 // name edit function
 editName.addEventListener("click", () => {
-    usernameModal.style.display = "flex";
+    usernameModal.style.display = "block";
 });
+
 // Handle the username submission
 document.getElementById("submit-username").addEventListener("click", () => {
     playerName = usernameInput.value.trim() || "Player"; // Get input or default to 'Player'
@@ -127,7 +133,9 @@ document.getElementById("submit-username").addEventListener("click", () => {
     usernameModal.style.display = "none";
     overlay.style.display = "none"; // Hide username modal and overlay
     startComputerHighlight();
-    startGameSetup(); // Proceed to game setup
+    startGameSetup();
+
+    // Proceed to game setup
 });
 
 // Core game logic
@@ -173,25 +181,45 @@ function startGame(playerChoice) {
     }, 1000);
 }
 
-// game setup
+// Function to handle rock click
+function handleRockClick() {
+    rockSound.play(); // Play rock sound
+    startGame("rock"); // Start game with rock choice
+}
+
+// Function to handle paper click
+function handlePaperClick() {
+    paperSound.play(); // Play paper sound
+    startGame("paper"); // Start game with paper choice
+}
+
+// Function to handle scissors click
+function handleScissorsClick() {
+    scissorsSound.play(); // Play scissors sound
+    startGame("scissors"); // Start game with scissors choice
+}
+
+// Function to remove existing event listeners
+function removeGameListeners() {
+    // Remove event listeners for rock, paper, and scissors buttons
+    rockButton.removeEventListener("click", handleRockClick);
+    paperButton.removeEventListener("click", handlePaperClick);
+    scissorsButton.removeEventListener("click", handleScissorsClick);
+}
+
+// Game setup
 function startGameSetup() {
     backgroundMusic.loop = true;
     backgroundMusic.volume = 0.4;
 
-    document.getElementById("rock").addEventListener("click", () => {
-        rockSound.play(); // play rock sound
-        startGame("rock"); // choose rock
-    });
+    // Remove previous listeners if any
+    removeGameListeners();
 
-    document.getElementById("paper").addEventListener("click", () => {
-        paperSound.play();
-        startGame("paper");
-    });
-
-    document.getElementById("scissors").addEventListener("click", () => {
-        scissorsSound.play();
-        startGame("scissors");
-    });
+    // Add new event listeners using the separate functions
+    rockButton.addEventListener("click", handleRockClick);
+    document;
+    paperButton.addEventListener("click", handlePaperClick);
+    scissorsButton.addEventListener("click", handleScissorsClick);
 
     playAgainButton.addEventListener("click", resetGame);
 
@@ -199,8 +227,10 @@ function startGameSetup() {
         button.addEventListener("click", () => triggerAnimation(button));
     });
 }
+
 // computer highlight
 function startComputerHighlight() {
+    clearInterval(highlightInterval);
     currentHighlightedIndex = 0; // start at rock
     highlightInterval = setInterval(() => {
         computerOptions[currentHighlightedIndex].classList.remove("highlight"); //remove from the current option before moving to the next
